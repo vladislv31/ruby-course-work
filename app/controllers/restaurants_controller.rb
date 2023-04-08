@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
     puts @restaurant
     if @restaurant.save
       flash[:success] = "Ресторан успешно добавлен!"
-      redirect_to @restaurant
+      redirect_to admin_path
     else
       render 'new'
     end

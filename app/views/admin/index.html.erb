@@ -1,2 +1,24 @@
 <h1>Административная панель</h1>
 <p>Это страница только для администраторов.</p>
+
+<h1>Restaurants</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |r| %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= r.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_tag class: 'btn btn-primary' do %>
+  <%= link_to 'Добавить', admin_restaurants_new_path %>
+<% end %>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :restaurants
 
-  #namespace :admin do
+  # resources :admin do
   #  resources :restaurants, only: [:new, :create]
-  #end
+  # end
 end
