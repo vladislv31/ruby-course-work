@@ -1,0 +1,17 @@
+<h1>Добавить новый ресторан</h1>
+
+<%= form_with(model: @restaurant, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Добавить" %>
+  </div>
+<% end %>

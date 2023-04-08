@@ -1,0 +1,9 @@
+<h1>Login</h1>
+<form action="/login" method="post">
+  <%= csrf_meta_tags %>
+  <label for="email">Email</label>
+  <%= email_field_tag :email, params[:email], required: true %>
+  <label for="password">Password</label>
+  <%= password_field_tag :password, required: true %>
+  <%= submit_tag "Log In" %>
+</form>
