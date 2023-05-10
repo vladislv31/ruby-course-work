@@ -1,0 +1,12 @@
+<div>
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.address %></p>
+  <%= link_to "Back", home_index_path %>
+
+  <h3>Products</h3>
+  <% @restaurant.products.each do |product| %>
+    <div>
+      <h4><%= product.name %></h4>
+    </div>
+  <% end %>
+</div>
