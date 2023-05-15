@@ -20,9 +20,29 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+  
+    if @restaurant.update(restaurant_params)
+      redirect_to @restaurant
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to root_path, notice: 'Restaurant was successfully deleted.'
+  end
+
   private
 
-    def restaurant_params
-      params.require(:restaurant).permit(:name, :address)
-    end
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :description, :image)
+  end
 end

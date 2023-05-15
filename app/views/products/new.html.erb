@@ -1,0 +1,33 @@
+<% content_for(:html_title) { 'Add product' } %>
+
+<div class="container">
+  <h1>Add new product</h1>
+  <%= form_with(model: [@restaurant, @product], local: true) do |p| %>
+    <div class="mb-3">
+      <%= p.label :name, class: 'form-label' %>
+      <%= p.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= p.label :image %>
+      <%= p.file_field :image %>
+    </div>
+    
+    <div class="mb-3">
+      <%= p.label :price, class: 'form-label' %>
+      <%= p.text_field :price, class: 'form-control' %>
+    </div>
+    
+    <div class="mb-3">
+      <%= p.label :quantity, class: 'form-label' %>
+      <%= p.text_field :quantity, class: 'form-control' %>
+    </div>
+  
+    <div class="mb-3">
+      <%= p.label :description, class: 'form-label' %>
+      <%= p.text_area :description, class: 'form-control' %>
+    </div>
+  
+    <%= p.submit "Save", class: 'btn btn-primary' %>
+  <% end %>
+</div>

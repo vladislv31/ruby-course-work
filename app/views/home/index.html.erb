@@ -1,17 +1,28 @@
 <% content_for(:html_title) { 'Main page' } %>
 
 <div class="container">
-  <h1>Welcome to my app</h1>
+  <h1>Food Delivery</h1>
   <% if current_user %>
     <p>You are logged in as <%= current_user.name %>.</p>
+    <h3>Restaurants</h3>
+    <% if current_user.is_admin %>
+      <%= link_to 'New restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+    <% end %>
+    <br><br>
     <div class="row">
       <% @restaurants.each do |restaurant| %>
         <div class="col-md-3">
-          <div class="card" style="width: 18rem;">
+          <div class="card" style="margin-bottom: 30px;" style="width: 18rem;">
+            <% if restaurant.image.attached? %> 
+              <%= image_tag restaurant.image, class: 'card-img-top' %>
+            <% end %>
             <div class="card-body">
-              <h5><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5><%= restaurant.name %></h5>
+              <p class="card-text"><%= restaurant.description %></p>
+              <%= link_to 'Watch products', restaurant_path(restaurant), class: 'btn btn-primary' %>
+              <% if current_user.is_admin %>
+                <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-info' %>
+              <% end %>
             </div>
           </div>
         </div>

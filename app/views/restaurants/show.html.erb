@@ -1,12 +1,28 @@
-<div>
+<% content_for(:html_title) { @restaurant.name } %>
+
+<div class="container">
   <h2><%= @restaurant.name %></h2>
   <p><%= @restaurant.address %></p>
   <%= link_to "Back", home_index_path %>
 
   <h3>Products</h3>
-  <% @restaurant.products.each do |product| %>
-    <div>
-      <h4><%= product.name %></h4>
-    </div>
-  <% end %>
+  <div class="row">
+    <% @restaurant.products.each do |product| %>
+      <div class="col-sm-3">
+        <div class="card">
+          <% if product.image.attached? %> 
+            <%= image_tag product.image, class: 'card-img-top' %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text"><%= product.price %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <% if current_user.is_admin %>
+              <%= link_to 'Edit', edit_restaurant_product_path(@restaurant, product), class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

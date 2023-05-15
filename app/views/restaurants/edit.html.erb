@@ -1,8 +1,10 @@
-<% content_for(:html_title) { 'Add restaurant' } %>
+<% content_for(:html_title) { 'Edit restaurant' } %>
 
 <div class="container">
-  <h1>Add new restaurant</h1>
-  <%= form_with(model: @restaurant, local: true) do |r| %>
+  <h1>Edit restaurant</h1>
+  <%= link_to "Delete restaurant", restaurant_destroy_path(@restaurant), method: :get, data: { confirm: 'Вы уверены, что хотите удалить этот ресторан?' }, class: "btn btn-danger" %>
+  <%= link_to "Add product", new_restaurant_product_path(@restaurant), class: "btn btn-primary" %><br><br>
+  <%= form_for(@restaurant) do |r| %>
     <div class="mb-3">
       <%= r.label :name, class: 'form-label' %>
       <%= r.text_field :name, class: 'form-control' %>

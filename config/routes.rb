@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'product/new'
   get 'restaurants/new'
   get 'admin/index'
   get 'home/index'
@@ -13,6 +14,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
   resources :restaurants
+
+  get 'restaurants/delete/:id', to: 'restaurants#destroy', as: 'restaurant_destroy'
+  
+  resources :restaurants do
+    resources :products
+  end
 
   # resources :admin do
   #  resources :restaurants, only: [:new, :create]
