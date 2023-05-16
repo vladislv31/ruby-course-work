@@ -18,22 +18,13 @@
 
     <% if current_user %>
 
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 mb-2 mb-md-0">
-            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-              <%= image_tag 'logo.png', alt: 'Мое изображение', width: '50', class: 'img-fluid' %>
-            </a>
-          </div>
-
-          <ul class="nav col-12 col-md-6 mb-2 justify-content-center mb-md-0">
-            <li><%= link_to 'Home', home_index_path, class: 'nav-link px-2 link-secondary' %></li>
-          </ul>
-
-          <div class="col-md-3 text-end">
-            <%= link_to "Log out", logout_path, type: 'button', class: 'btn btn-outline-primary me-2', method: :delete %>
-          </div>
+    <header data-bs-theme="dark">
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="/" class="navbar-brand d-flex align-items-center">
+            <strong>Food Delivery</strong>
+          </a>
+          <%= link_to "Logout", logout_path, class: "btn btn-outline-light" %>
         </div>
       </div>
     </header>
