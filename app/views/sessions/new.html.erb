@@ -1,9 +1,25 @@
-<h1>Login</h1>
-<form action="/login" method="post">
-  <%= csrf_meta_tags %>
-  <label for="email">Email</label>
-  <%= email_field_tag :email, params[:email], required: true %>
-  <label for="password">Password</label>
-  <%= password_field_tag :password, required: true %>
-  <%= submit_tag "Log In" %>
-</form>
+<div class="form-signin">
+  <form action="/login" method="post">
+    <%= csrf_meta_tags %>
+
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <div class="form-floating">
+      <%= email_field_tag :email, params[:email], required: true, class: 'form-control', id: 'floatingInput', placeholder: 'name@example.com' %>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <%= password_field_tag :password, nil, required: true, class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <%= submit_tag "Sign in", class: 'w-100 btn btn-lg btn-primary' %>
+    <br><br>
+    <%= link_to "Back", :back %>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+  </form>
+</div>

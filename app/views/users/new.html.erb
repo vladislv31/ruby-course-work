@@ -1,14 +1,32 @@
-<h1>Signup</h1>
+<div class="form-signup">
+  <form action="/users" method="post">
+    <%= csrf_meta_tags %>
 
-<form action="/users" method="post">
-  <%= csrf_meta_tags %>
-  <label for="user_name">Name</label>
-  <%= text_field_tag :name, @user.name, required: true %>
-  <label for="user_email">Email</label>
-  <%= email_field_tag :email, @user.email, required: true %>
-  <label for="user_password">Password</label>
-  <%= password_field_tag :password, required: true %>
-  <label for="user_password_confirmation">Confirm Password</label>
-  <%= password_field_tag :password_confirmation, required: true %>
-  <%= submit_tag "Create Account" %>
-</form>
+    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+    <div class="form-floating">
+      <%= text_field_tag :name, @user.name, required: true, class: 'form-control', id: 'floatingInput', placeholder: 'Name' %>
+      <label for="floatingInput">Name</label>
+    </div>
+    <div class="form-floating">
+      <%= email_field_tag :email, @user.email, required: true, class: 'form-control', id: 'floatingInput', placeholder: 'name@example.com' %>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <%= text_field_tag :phone, @user.phone, required: true, class: 'form-control', id: 'floatingInput', placeholder: 'Phone' %>
+      <label for="floatingInput">Phone</label>
+    </div>
+    <div class="form-floating">
+      <%= password_field_tag :password, nil, required: true, class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating">
+      <%= password_field_tag :password_confirmation, nil, required: true, class: 'form-control', id: 'floatingPassword', placeholder: 'Confirm password' %>
+      <label for="floatingPassword">Confirm password</label>
+    </div>
+    <%= submit_tag "Sign up", class: 'w-100 btn btn-lg btn-primary' %>
+    <br><br>
+    <%= link_to "Back", :back %>
+    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+  </form>
+</div>

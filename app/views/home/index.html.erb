@@ -1,8 +1,7 @@
 <% content_for(:html_title) { 'Main page' } %>
 
-<div class="container">
-  <h1>Food Delivery</h1>
   <% if current_user %>
+  <div class="container">
     <p>You are logged in as <%= current_user.name %>.</p>
     <h3>Restaurants</h3>
     <% if current_user.is_admin %>
@@ -28,7 +27,76 @@
         </div>
       <% end %>
     </div>
+    </div>
   <% else %>
-    <%= link_to "Log in", login_path %> or <%= link_to "Sign up", signup_path %>
+    <header class="site-header py-1">
+      <h1 style="text-align: center;">Food Delivery</h1>
+    </header>
+
+    <main>
+      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary intro-banner" style="background-image: url(<%= asset_path('banner.jpg') %>
+      )">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h3 class="display-5">Fast Food Delivery</h3>
+          <p class="lead fw-normal">Try now</p>
+          <%= link_to "Log in", login_path, class: "btn btn-outline-light" %>
+          <%= link_to "Sign up", signup_path, class: "btn btn-outline-light" %>
+        </div>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+      </div>
+      <div class="container">
+        <div class="about-us">
+          <h3>About us</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+          <small class="d-block mb-3 text-body-secondary">&copy; 2017–2023</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Cool stuff</a></li>
+            <li><a class="link-secondary" href="#">Random feature</a></li>
+            <li><a class="link-secondary" href="#">Team feature</a></li>
+            <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+            <li><a class="link-secondary" href="#">Another one</a></li>
+            <li><a class="link-secondary" href="#">Last time</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Resource name</a></li>
+            <li><a class="link-secondary" href="#">Resource</a></li>
+            <li><a class="link-secondary" href="#">Another resource</a></li>
+            <li><a class="link-secondary" href="#">Final resource</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Business</a></li>
+            <li><a class="link-secondary" href="#">Education</a></li>
+            <li><a class="link-secondary" href="#">Government</a></li>
+            <li><a class="link-secondary" href="#">Gaming</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="link-secondary" href="#">Team</a></li>
+            <li><a class="link-secondary" href="#">Locations</a></li>
+            <li><a class="link-secondary" href="#">Privacy</a></li>
+            <li><a class="link-secondary" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   <% end %>
-</div>

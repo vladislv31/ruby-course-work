@@ -34,6 +34,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @product = @restaurant.products.find(params[:id])
+  end
+
   private
 
   def product_params
