@@ -1,14 +1,66 @@
 <% content_for(:html_title) { @product.name } %>
 
-<div class="container">
-  <h2><%= @restaurant.name %></h2>
-  <p><%= @restaurant.address %></p>
-  <%= link_to "Back", home_index_path %>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light"><%= @restaurant.name %></h1>
+        <p class="lead text-body-secondary"><%= @restaurant.description %></p>
+        <p>
+          <%= link_to 'Повернутися', restaurant_path(@restaurant), class: 'btn btn-primary' %>
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <h3><%= @product.name %></h3>
-  <div class="product">
-    <h2><%= @product.name %></h2>
-    <p><%= @product.description %></p>
-    <p><strong>Цена:</strong> <%= @product.price %></p>
+<div class="single-product bg-body-tertiary">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5">
+      <% if @product.image.attached? %> 
+        <%= image_tag @product.image.variant(resize_to_fill: [700, 450]).processed, class: 'img-fluid' %>
+      <% end %>
+      </div>
+      <div class="col-sm-5">
+        <h3><%= @product.name %></h3>
+        <p><%= @product.description %></p>
+        <p class="price">₴ <%= @product.price %></p>
+        <form>
+          <div class="input-group input-quantity">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary btn-first" type="button" onclick="decreaseValue()">-</button>
+            </div>
+            <input type="number" class="form-control" id="number-input" value="1" min="1" max="10">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary btn-second" type="button" onclick="increaseValue()">+</button>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Додати в кошик</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+
+<script>
+  function increaseValue() {
+    var value = parseInt(document.getElementById('number-input').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    if (value > 10) {
+      value = 10;
+    }
+    document.getElementById('number-input').value = value;
+  }
+
+  function decreaseValue() {
+    var value = parseInt(document.getElementById('number-input').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value--;
+    if (value < 1) {
+      value = 1;
+    }
+    document.getElementById('number-input').value = value;
+  }
+</script>

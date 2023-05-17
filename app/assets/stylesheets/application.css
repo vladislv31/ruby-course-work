@@ -90,3 +90,48 @@
 header {
   margin-bottom: 50px;
 }
+
+.products {
+  margin-top: 30px;
+  padding-top: 40px;
+  padding-bottom: 55px;
+}
+
+.products h4 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.single-product {
+  padding: 50px 0;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.input-quantity {
+  width: 150px;
+}
+
+.input-quantity .form-control {
+  border-radius: 0;
+}
+
+.input-quantity .btn {
+  width: 35px;
+  border-radius: 0;
+}
+
+.input-quantity .btn-first {
+  border-radius: 5px 0 0 5px;
+}
+
+.input-quantity .btn-second {
+  border-radius: 0 5px 5px 0;
+}
+
+footer {
+  margin-top: 50px;
+}
