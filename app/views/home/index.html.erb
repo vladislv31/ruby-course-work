@@ -5,12 +5,12 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Album example</h1>
-          <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-          <p>
+          <h1 class="fw-light">Food Delivery</h1>
+          <p class="lead text-body-secondary">Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів.</p>
+          <!-- <p>
             <a href="#" class="btn btn-primary my-2">Main call to action</a>
             <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p>
+          </p> -->
         </div>
       </div>
     </section>  
@@ -18,9 +18,9 @@
     <div class="album py-5 bg-body-tertiary">
     <div class="container">
     <div class="text-center">
-      <h3>Restaurants</h3>
+      <h3>Ресторани</h3>
       <% if current_user.is_admin %>
-        <%= link_to 'New restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+        <%= link_to 'Додати новий', new_restaurant_path, class: 'btn btn-primary' %>
       <% end %>
     </div>
     <br><br>
@@ -35,9 +35,9 @@
               <h5><%= restaurant.name %></h5>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <%= link_to 'Watch products', restaurant_path(restaurant), class: 'btn btn-sm btn-outline-primary' %>
+                  <%= link_to 'Товари', restaurant_path(restaurant), class: 'btn btn-sm btn-outline-primary' %>
                   <% if current_user.is_admin %>
-                    <%= link_to 'Edit', edit_restaurant_path(restaurant), class: 'btn btn-sm btn-primary' %>
+                    <%= link_to 'Редагувати', edit_restaurant_path(restaurant), class: 'btn btn-sm btn-primary' %>
                   <% end %>
                 </div>
               </div>
@@ -59,17 +59,17 @@
       )">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
           <h3 class="display-5">Fast Food Delivery</h3>
-          <p class="lead fw-normal">Try now</p>
-          <%= link_to "Log in", login_path, class: "btn btn-outline-light" %>
-          <%= link_to "Sign up", signup_path, class: "btn btn-outline-light" %>
+          <p class="lead fw-normal">Спробуй зараз</p>
+          <%= link_to "Увійти", login_path, class: "btn btn-outline-light" %>
+          <%= link_to "Зареєструватися", signup_path, class: "btn btn-outline-light" %>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
       </div>
       <div class="container">
         <div class="about-us">
-          <h3>About us</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <h3>Про нас</h3>
+          <p>Lorem Ipsum - це текст-"риба", що використовується в друкарстві та дизайні. Lorem Ipsum є, фактично, стандартною "рибою" аж з XVI сторіччя, коли невідомий друкар взяв шрифтову гранку та склав на ній підбірку зразків шрифтів. "Риба" не тільки успішно пережила п'ять століть, але й прижилася в електронному верстуванні, залишаючись по суті незмінною. Вона популяризувалась в 60-их роках минулого сторіччя завдяки виданню зразків шрифтів Letraset, які містили уривки з Lorem Ipsum, і вдруге - нещодавно завдяки програмам комп'ютерного верстування на кшталт Aldus Pagemaker, які використовували різні версії Lorem Ipsum.</p>
         </div>
       </div>
     </main>
@@ -81,41 +81,35 @@
           <small class="d-block mb-3 text-body-secondary">&copy; 2017–2023</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Features</h5>
+          <h5>Корисні посилання</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Cool stuff</a></li>
-            <li><a class="link-secondary" href="#">Random feature</a></li>
-            <li><a class="link-secondary" href="#">Team feature</a></li>
-            <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-            <li><a class="link-secondary" href="#">Another one</a></li>
-            <li><a class="link-secondary" href="#">Last time</a></li>
+            <li><a class="link-secondary" href="#">Про нас</a></li>
+            <li><a class="link-secondary" href="#">Часті запитання</a></li>
+            <li><a class="link-secondary" href="#">Блог</a></li>
+            <li><a class="link-secondary" href="#">Контакти</a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Соц. мережі</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Resource name</a></li>
-            <li><a class="link-secondary" href="#">Resource</a></li>
-            <li><a class="link-secondary" href="#">Another resource</a></li>
-            <li><a class="link-secondary" href="#">Final resource</a></li>
+            <li><a class="link-secondary" href="#">Facebook</a></li>
+            <li><a class="link-secondary" href="#">Twitter</a></li>
+            <li><a class="link-secondary" href="#">Instagram</a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Співпраця</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Business</a></li>
-            <li><a class="link-secondary" href="#">Education</a></li>
-            <li><a class="link-secondary" href="#">Government</a></li>
-            <li><a class="link-secondary" href="#">Gaming</a></li>
+            <li><a class="link-secondary" href="#">Вакансії</a></li>
+            <li><a class="link-secondary" href="#">Кур'єри</a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>About</h5>
+          <h5>Інше</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Team</a></li>
-            <li><a class="link-secondary" href="#">Locations</a></li>
-            <li><a class="link-secondary" href="#">Privacy</a></li>
-            <li><a class="link-secondary" href="#">Terms</a></li>
+            <li><a class="link-secondary" href="#">Правила й умови</a></li>
+            <li><a class="link-secondary" href="#">Політика конфіденційності</a></li>
+            <li><a class="link-secondary" href="#">Політика файлів cookie</a></li>
           </ul>
         </div>
       </div>
