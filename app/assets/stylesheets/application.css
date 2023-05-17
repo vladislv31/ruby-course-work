@@ -135,3 +135,7 @@ header {
 footer {
   margin-top: 50px;
 }
+
+.added-to-cart-alert {
+  display: none;
+}

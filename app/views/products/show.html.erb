@@ -25,18 +25,22 @@
         <h3><%= @product.name %></h3>
         <p><%= @product.description %></p>
         <p class="price">₴ <%= @product.price %></p>
-        <form>
+        <form id="add-to-cart">
+          <%= hidden_field_tag :product_id, @product.id %>
           <div class="input-group input-quantity">
             <div class="input-group-prepend">
               <button class="btn btn-outline-secondary btn-first" type="button" onclick="decreaseValue()">-</button>
             </div>
-            <input type="number" class="form-control" id="number-input" value="1" min="1" max="10">
+            <%= number_field_tag :quantity, 1, min: 1, max: 10, id: 'number-input', class: 'form-control' %>
             <div class="input-group-append">
               <button class="btn btn-outline-secondary btn-second" type="button" onclick="increaseValue()">+</button>
             </div>
           </div>
           <br>
           <button type="submit" class="btn btn-primary">Додати в кошик</button>
+          <div class="alert alert-success added-to-cart-alert" style="margin-top: 20px;" role="alert">
+            Товар було успішно додано в кошик
+          </div>
         </form>
       </div>
     </div>

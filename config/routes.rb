@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
+  get 'cart', to: 'cart_items#index'
 
   get '/admin', to: 'admin#index'
   get '/admin/restaurants/new', to: 'restaurants#new'
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :products
   end
+
+  resources :cart_items
 
   # resources :admin do
   #  resources :restaurants, only: [:new, :create]
