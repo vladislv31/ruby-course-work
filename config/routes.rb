@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     resources :products
   end
 
-  resources :cart_items
+  resources :cart_items, only: [:create, :desctory] do
+    patch :update_quantity, on: :member
+  end
 
   # resources :admin do
   #  resources :restaurants, only: [:new, :create]

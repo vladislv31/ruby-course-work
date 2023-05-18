@@ -1,1 +1,41 @@
-asdasd
+<% content_for(:html_title) { 'Cart' } %>
+
+
+<div class="container">
+  <h1>Товари в кошику</h1><br>
+
+  <% if @cart_items.empty? %>
+    <p>Ваш кошик порожній.</p>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Товар</th>
+          <th>Ресторан</th>
+          <th>Кількість</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= cart_item.product.name %></td>
+            <td><%= cart_item.product.restaurant.name %></td>
+            <td>
+              <div class="input-group input-quantity">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary btn-first decrease-quantity" type="button" data-id="<%= cart_item.id %>">-</button>
+                </div>
+                <%= number_field_tag :quantity, 1, min: 1, max: 10, id: 'number-input', class: 'form-control', value: cart_item.quantity %>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary btn-second increase-quantity" type="button" data-id="<%= cart_item.id %>">+</button>
+                </div>
+              </div>
+            </td>
+            <td><button class="btn btn-danger delete-from-cart" data-id="<%= cart_item.id %>">Видалити</button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
