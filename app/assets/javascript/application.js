@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 
+import "controllers"
+
 $(document).ready(function() {
   $('#add-to-cart').submit(function(event) {
     event.preventDefault();
