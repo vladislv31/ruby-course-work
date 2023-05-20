@@ -1,0 +1,50 @@
+<% content_for(:html_title) { 'Замовлення' } %>
+
+<div class="container">
+
+  <h2>Список замовлень</h2>
+  <br>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Товары заказа</th>
+        <th>Имя покупателя</th>
+        <th>Телефон покупателя</th>
+        <th>Статус заказа</th>
+        <th>Дата заказа</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Название товара</th>
+                  <th>Ресторан</th>
+                  <th>Количество</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% order.order_products.each do |order_product| %>
+                  <tr>
+                    <td><%= order_product.product.name %></td>
+                    <td><%= order_product.product.restaurant.name %></td>
+                    
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </td>
+          <td><%= order.user.name %></td>
+          <td><%= order.user.phone %></td>
+          <td><%= order.status %></td>
+          <td><%= order.date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

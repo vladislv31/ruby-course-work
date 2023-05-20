@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
     redirect_to root_path, notice: "Заказ успешно оформлен."
   end
 
+  def index
+    @orders = Order.all
+  end
+
   private
 
   def order_params

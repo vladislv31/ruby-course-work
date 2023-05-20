@@ -25,6 +25,9 @@
             <strong>Food Delivery</strong>
           </a>
           <div>
+            <% if current_user.is_admin %>
+              <%= link_to "Замовлення", orders_path, class: "btn btn-outline-light" %>
+            <% end %>
             <%= link_to "Кошик", cart_path, class: "btn btn-outline-light" %>
             <%= link_to "Вийти", logout_path, class: "btn btn-outline-light" %>
           </div>
