@@ -32,5 +32,6 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_items = current_user.cart_items
+    @order = Order.new
   end
 end

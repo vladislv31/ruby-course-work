@@ -139,3 +139,13 @@ footer {
 .added-to-cart-alert {
   display: none;
 }
+
+.order {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.order h3 {
+  margin-bottom: 30px;
+}

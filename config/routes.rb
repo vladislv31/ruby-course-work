@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     patch :update_quantity, on: :member
   end
 
+  resources :orders, only: [:create]
+
   # resources :admin do
   #  resources :restaurants, only: [:new, :create]
   # end
