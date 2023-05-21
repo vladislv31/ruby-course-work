@@ -1,0 +1,13 @@
+Arzuman:
+  - Front End
+  - Auth/Register
+
+Dima:
+  - Products
+
+Sasha:
+  - Cart
+
+Vlad:
+  - Restaurants
+  - Orders

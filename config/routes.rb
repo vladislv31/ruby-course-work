@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:create, :index]
 
-  # resources :admin do
-  #  resources :restaurants, only: [:new, :create]
-  # end
+  resources :orders do
+    member do
+      patch :mark_in_progress
+      patch :mark_done
+      patch :mark_canceled
+    end
+  end
 end

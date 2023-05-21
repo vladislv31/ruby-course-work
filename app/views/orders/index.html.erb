@@ -8,11 +8,13 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Товары заказа</th>
-        <th>Имя покупателя</th>
-        <th>Телефон покупателя</th>
-        <th>Статус заказа</th>
-        <th>Дата заказа</th>
+        <th>Товари</th>
+        <th>Покупець</th>
+        <th>Телефон</th>
+        <th>Статус</th>
+        <th>Дата</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,9 +24,9 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Название товара</th>
+                  <th>Назва товару</th>
                   <th>Ресторан</th>
-                  <th>Количество</th>
+                  <th>Кількість</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,7 +34,7 @@
                   <tr>
                     <td><%= order_product.product.name %></td>
                     <td><%= order_product.product.restaurant.name %></td>
-                    
+                    <td><%= order_product.quantity %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -40,8 +42,33 @@
           </td>
           <td><%= order.user.name %></td>
           <td><%= order.user.phone %></td>
-          <td><%= order.status %></td>
+          <td>
+            <% if order.status == 'created' %>
+              Новий
+            <% elsif order.status == 'done' %>
+              Виконано
+            <% elsif order.status == 'canceled' %>
+              Скасовано
+            <% else %>
+              В процесі
+            <% end %>
+          </td>
           <td><%= order.date %></td>
+          <% if order.status == 'created' %>
+            <td>
+              <%= link_to "Прийняти", mark_in_progress_order_path(order), method: :patch %>
+            </td>
+            <td>
+              <%= link_to "Відмінити", mark_canceled_order_path(order), method: :patch %>
+            </td>
+          <% elsif order.status == 'in_progress' %>
+            <td>
+              <%= link_to "Виконано", mark_done_order_path(order), method: :patch %>
+            </td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
