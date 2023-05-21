@@ -11,6 +11,7 @@
         <th>Товари</th>
         <th>Покупець</th>
         <th>Телефон</th>
+        <th>Загальна ціна</th>
         <th>Статус</th>
         <th>Дата</th>
         <th></th>
@@ -27,6 +28,7 @@
                   <th>Назва товару</th>
                   <th>Ресторан</th>
                   <th>Кількість</th>
+                  <th>Загальна ціна</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,6 +37,7 @@
                     <td><%= order_product.product.name %></td>
                     <td><%= order_product.product.restaurant.name %></td>
                     <td><%= order_product.quantity %></td>
+                    <td>₴ <%= order_product.quantity * order_product.product.price %></td>
                   </tr>
                 <% end %>
               </tbody>
@@ -42,6 +45,7 @@
           </td>
           <td><%= order.user.name %></td>
           <td><%= order.user.phone %></td>
+          <td>₴ <%= order.total_price %></td>
           <td>
             <% if order.status == 'created' %>
               Новий

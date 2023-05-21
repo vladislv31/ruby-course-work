@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
 
     # current_user.cart_items.destroy_all
-    redirect_to root_path, notice: "Заказ успешно оформлен."
+    redirect_to root_path
   end
 
   def index

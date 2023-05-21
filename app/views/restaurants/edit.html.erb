@@ -1,30 +1,30 @@
 <% content_for(:html_title) { 'Edit restaurant' } %>
 
 <div class="container">
-  <h1>Edit restaurant</h1>
-  <%= link_to "Delete restaurant", restaurant_destroy_path(@restaurant), method: :get, data: { confirm: 'Вы уверены, что хотите удалить этот ресторан?' }, class: "btn btn-danger" %>
-  <%= link_to "Add product", new_restaurant_product_path(@restaurant), class: "btn btn-primary" %><br><br>
+  <h2>Редагувати ресторан</h2>
+  <%= link_to "Видалити ресторан", restaurant_destroy_path(@restaurant), method: :get, data: { confirm: 'Ви впевнені, що хочете видалити цей ресторан?' }, class: "btn btn-danger" %>
+  <%= link_to "Додати продукт", new_restaurant_product_path(@restaurant), class: "btn btn-primary" %><br><br>
   <%= form_for(@restaurant) do |r| %>
     <div class="mb-3">
-      <%= r.label :name, class: 'form-label' %>
+      <%= r.label 'Назва', class: 'form-label' %>
       <%= r.text_field :name, class: 'form-control' %>
     </div>
 
     <div class="mb-3">
-      <%= r.label :image %>
+      <%= r.label 'Картинка' %>
       <%= r.file_field :image %>
     </div>
     
     <div class="mb-3">
-      <%= r.label :address, class: 'form-label' %>
+      <%= r.label 'Адреса розташування', class: 'form-label' %>
       <%= r.text_field :address, class: 'form-control' %>
     </div>
   
     <div class="mb-3">
-      <%= r.label :description, class: 'form-label' %>
+      <%= r.label 'Опис', class: 'form-label' %>
       <%= r.text_area :description, class: 'form-control' %>
     </div>
   
-    <%= r.submit "Save", class: 'btn btn-primary' %>
+    <%= r.submit "Зберегти", class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @product = @restaurant.products.build(product_params)
   
     if @product.save
-      redirect_to @restaurant, notice: "Продукт успешно создан"
+      redirect_to @restaurant
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     @product = @restaurant.products.find(params[:id])
   
     if @product.update(product_params)
-      redirect_to @restaurant, notice: "Продукт успешно обновлен"
+      redirect_to @restaurant
     else
       render :edit
     end
@@ -39,6 +39,12 @@ class ProductsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:restaurant_id])
     @product = @restaurant.products.find(params[:id])
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path
   end
 
   private

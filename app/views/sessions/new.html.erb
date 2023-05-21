@@ -1,3 +1,5 @@
+<% content_for(:html_title) { 'Авторизація' } %>
+
 <div class="form-signin">
   <%= form_with url: login_path, method: :post, data: {turbo: false} do |form| %>
     <%= csrf_meta_tags %>
@@ -12,14 +14,19 @@
       <%= password_field_tag :password, nil, required: true, class: 'form-control', id: 'floatingPassword', placeholder: 'Password' %>
       <label for="floatingPassword">Пароль</label>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Запам'ятати вас?
-      </label>
-    </div>
     <%= submit_tag "Увійти", class: 'w-100 btn btn-lg btn-primary' %>
     <br><br>
-    <%= link_to "Повернутися", :back %>
+    <%= link_to "Повернутися", '/' %>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+  <% end %>
+  <% if @error %>
+    <div class="alert alert-danger">
+      <%= @error %>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash.now[:alert] %>
+    </div>
   <% end %>
 </div>

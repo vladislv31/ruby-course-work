@@ -1,28 +1,28 @@
-<% content_for(:html_title) { 'Add restaurant' } %>
+<% content_for(:html_title) { 'Додати ресторан' } %>
 
 <div class="container">
-  <h1>Add new restaurant</h1>
+  <h1>Додати новий ресторан</h1>
   <%= form_with(model: @restaurant, local: true) do |r| %>
     <div class="mb-3">
-      <%= r.label :name, class: 'form-label' %>
+      <%= r.label 'Назва', class: 'form-label' %>
       <%= r.text_field :name, class: 'form-control' %>
     </div>
 
     <div class="mb-3">
-      <%= r.label :image %>
+      <%= r.label 'Картинка' %>
       <%= r.file_field :image %>
     </div>
     
     <div class="mb-3">
-      <%= r.label :address, class: 'form-label' %>
+      <%= r.label 'Адреса', class: 'form-label' %>
       <%= r.text_field :address, class: 'form-control' %>
     </div>
   
     <div class="mb-3">
-      <%= r.label :description, class: 'form-label' %>
+      <%= r.label 'Опис', class: 'form-label' %>
       <%= r.text_area :description, class: 'form-control' %>
     </div>
   
-    <%= r.submit "Save", class: 'btn btn-primary' %>
+    <%= r.submit "Зберегти", class: 'btn btn-primary' %>
   <% end %>
 </div>

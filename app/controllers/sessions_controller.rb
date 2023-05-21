@@ -6,19 +6,15 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      if user.is_admin?
-      #   redirect_to admin_path
-      # else
-        redirect_to root_path, notice: "Welcome back, #{user.name}!"
-      end
+      redirect_to root_path
     else
-      flash.now[:alert] = "Invalid email or password"
+      flash[:alert] = "Неправильний емейл або пароль."
       redirect_to login_path
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "You have been logged out."
+    redirect_to root_path
   end
 end
