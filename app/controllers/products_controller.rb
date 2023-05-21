@@ -20,9 +20,6 @@ class ProductsController < ApplicationController
   def edit
     @restaurant = Restaurant.find(params[:restaurant_id])
     @product = @restaurant.products.find(params[:id])
-
-    puts '========'
-    puts @product
   end
 
   def update
