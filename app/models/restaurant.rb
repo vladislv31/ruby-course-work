@@ -1,7 +1,7 @@
 require 'mini_magick'
 
 class Restaurant < ApplicationRecord
-  has_many :products
+  has_many :products, dependent: :destroy
   has_one_attached :image
 
   after_save :crop_image

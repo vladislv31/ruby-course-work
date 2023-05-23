@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     puts @order.errors.full_messages
 
 
-    # current_user.cart_items.destroy_all
+    current_user.cart_items.destroy_all
     redirect_to root_path
   end
 
